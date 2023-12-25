@@ -1,29 +1,26 @@
-int count = 0;
-
-int minPartitions(string n) {
-    if (n.empty()) {
-        return count;
-    }
-
-    long long num = 0;
-    if (n.back() == '0')
-        {
-        num =pow(10, (n.length()-1)) ;
+    int count = 0;
+    int mid  = (s.length()-1)/2; 
+    for (int i = mid ; i>=0;i--) {
+        if (s[i] == s[i - 1]) {
+            if (s[i-1] == '1') {
+                s[i-1] = '0';
+                count++;
+            } else {
+                s[i-1] = '1';
+                count++;
+            }
         }
-
-    else{
-       for (char c : n) {
-        num = num * 10 + 1; // Append '1' to the end in each iteration
-     }
     }
-    
-
-    long long currentNum = stoll(n, nullptr, 10)%num;
-    
-    if (currentNum % num == 0) {
-        return count +(stoll(n) / num);
+    for (int j = mid+1; j<s.length()-1;j++ )
+    {
+         if (s[j] == s[j + 1]) {
+            if (s[j+1] == '1') {
+                s[j+1] = '0';
+                count++;
+            } else {
+                s[j+1] = '1';
+                count++;
+            }
+        }
     }
-
-    count = count +(stoll(n) / num) ;
-    return minPartitions(to_string(currentNum));
-}
+    return count;

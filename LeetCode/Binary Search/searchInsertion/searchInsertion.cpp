@@ -22,7 +22,7 @@ int searchInsert( vector<int>& arr ,int t)
          }
         else
         {
-            return mid;
+            return arr[mid+1];
         }
     }
 
@@ -41,8 +41,8 @@ int main()
 {
     vector<int> arr = {1,2,3,4,5,6,8};
     cout << "index" << endl;
-    //cout<<searchInsert(arr , 9);
-    cout << searchInsert1(arr, 9);
+    cout<<searchInsert(arr , 2);
+    //cout << searchInsert1(arr, 2);
 
 
     return 0;
