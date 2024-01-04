@@ -40,7 +40,6 @@ using namespace std;
         }
     }
 
-    int each = total /dup.size();
     for(auto s: dup)
     {
         if (s.second % words.size() != 0){return false ;}
